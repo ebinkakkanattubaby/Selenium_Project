@@ -3,6 +3,8 @@ package com.selenium.test_demo;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 import java.time.Duration;
 
@@ -15,7 +17,9 @@ public class Testfacebooklogin {
     @BeforeEach
     void setUp() {
         //System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        driver = new ChromeDriver();
+	ChromeOptions options = new ChromeOptions();
+	options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
